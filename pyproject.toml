@@ -4,10 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Vicent Alabau <valabau@sciling.com>"]
 readme = "README.md"
-packages = [{include = "alabauhnos"}]
+packages = [{ include = "alabauhnos" }]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
+requests = "^2.32.3"
 
 
 [build-system]
