@@ -36,6 +36,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Install poetry
+        run: pipx install poetry
+
       - name: Setup Python
         uses: actions/setup-python@v5.1.1
         with:
@@ -43,22 +46,6 @@ jobs:
           python-version: 3.11
           # Used to specify a package manager for caching in the default directory. Supported values: pip, pipenv, poetry.
           cache: poetry
-
-      - name: Update from Google Maps
-        run: python3 update-web.py
-        env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          PLACE_ID: "PLACE_ID" # Google Place ID
-
-      # - name: Commit and push reviews
-      #   run: |
-      #     git config --global user.name 'github-actions[bot]'
-      #     git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-      #     git add reviews.json
-      #     git commit -m 'Update Google Maps reviews'
-      #     git push
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
